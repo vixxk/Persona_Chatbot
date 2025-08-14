@@ -1,0 +1,161 @@
+.home-container {
+  text-align: center;
+  padding: 50px 20px;
+  background: #1e1e2f;
+  min-height: 100vh;
+  color: #e0d7ff;
+  font-family: 'Poppins', sans-serif;
+  position: relative;
+}
+
+.github-icon {
+  position: absolute;
+  top: 15px;
+  left: 15px;
+  font-size: 28px;
+  color: #fff;
+  background: #1b1b1f;
+  padding: 8px;
+  border-radius: 50%;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+  transition: transform 0.2s, background 0.2s;
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.github-icon:hover {
+  transform: scale(1.1);
+  background: #333;
+}
+
+.home-container h1 {
+  font-size: 3rem;
+  font-weight: 700;
+  margin-bottom: 20px;
+  color: #bb86fc;
+  text-shadow: 0 0 10px #bb86fc33;
+}
+
+.home-description {
+  max-width: 700px;
+  margin: 0 auto 40px;
+  font-size: 1rem;
+  color: #d0c4ff;
+  text-align: center;
+  line-height: 1.6;
+}
+
+.persona-grid {
+  display: flex;
+  gap: 25px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.persona-card-wrapper {
+  position: relative;
+  display: inline-block;
+}
+
+.persona-card {
+  position: relative;
+  width: 220px;
+  height: 300px;
+  border-radius: 15px;
+  cursor: pointer;
+  background-size: cover;
+  background-position: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+  overflow: hidden;
+  border: 2px solid transparent;
+  background-clip: padding-box;
+}
+
+.persona-card:hover {
+  transform: translateY(-10px) scale(1.05);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.7);
+  border: 2px solid #bb86fc;
+}
+
+.persona-card::before {
+  content: '';
+  position: absolute;
+  top: -5px;
+  left: -5px;
+  right: -5px;
+  bottom: -5px;
+  border-radius: 15px;
+  background: linear-gradient(45deg, #bb86fc, #6200ea, #3700b3, #bb86fc);
+  background-size: 400%;
+  z-index: -1;
+  animation: glowing-border 3s linear infinite;
+}
+
+@keyframes glowing-border {
+  0% { background-position: 400% 0; }
+  50% { background-position: 0 100%; }
+  100% { background-position: 400% 0; }
+}
+
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0,0,0,0.5);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  border-radius: 15px;
+}
+
+.persona-card:hover .overlay {
+  opacity: 1;
+}
+
+.overlay h2 {
+  font-size: 1.5rem;
+  color: #fff;
+  margin-bottom: 10px;
+}
+
+.overlay p {
+  color: #e0d7ff;
+  font-size: 14px;
+  text-align: center;
+  padding: 0 10px;
+}
+
+.card-preview {
+  position: absolute;
+  top: 50%;
+  width: 680px; 
+  height: auto;
+  transform: translateY(-50%);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  pointer-events: none;
+  border: 2px solid #bb86fc;
+  border-radius: 10px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.5);
+  z-index: 10;
+}
+
+.left-card.card-preview {
+  left: -690px; 
+}
+
+.right-card.card-preview {
+  right: -690px; 
+}
+
+.persona-card-wrapper:hover .card-preview {
+  opacity: 1;
+}
