@@ -37,19 +37,15 @@ app.post('/api/chat', async (req, res) => {
       { role: "system", content: personas[persona].systemPrompt },
       ...(Array.isArray(history) ? history.map(msg => ({
         role: msg.role,
-        content: msg.text
+        content: msg.content
       })) : []),
       { role: "user", content: message }
     ];
-
-    // console.log('Sending to Gemini:', { model: "gemini-2.0-flash", messageCount: messages.length });
 
     const completion = await openai.chat.completions.create({
       model: "gemini-2.0-flash", 
       messages
     });
-
-    // console.log('Gemini response:', completion);
 
     let replyMsg;
     if (completion?.choices?.[0]?.message?.content) {

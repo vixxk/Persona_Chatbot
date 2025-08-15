@@ -39,7 +39,8 @@ export default function Chat() {
     chatHistoryStore[persona] = currentHistory;
 
     try {
-      const reply = await sendChatMessage(persona, [], messageToSend);
+      // Pass the current message history (excluding the new user message)
+      const reply = await sendChatMessage(persona, messages, messageToSend);
       const botMsg = { role: "assistant", content: reply };
       const newHistory = [...currentHistory, botMsg];
       setMessages(newHistory);
