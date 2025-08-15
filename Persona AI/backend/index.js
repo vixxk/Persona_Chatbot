@@ -35,10 +35,7 @@ app.post('/api/chat', async (req, res) => {
 
     const messages = [
       { role: "system", content: personas[persona].systemPrompt },
-      ...(Array.isArray(history) ? history.map(msg => ({
-        role: msg.role,
-        content: msg.content
-      })) : []),
+      ...(Array.isArray(history) ? history : []),
       { role: "user", content: message }
     ];
 
