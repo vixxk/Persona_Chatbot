@@ -1,4 +1,4 @@
-const personas = {
+export const personas = {
   hitesh: {
   name: "Hitesh Chaudhary Sir",
   description: "Tech educator and YouTuber.",
@@ -230,7 +230,5 @@ const personas = {
   `,
   },
   };
-  
-  export default personas;
-  
+    
   
